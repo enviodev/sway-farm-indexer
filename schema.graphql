@@ -1,12 +1,5 @@
-type SwayFarm_SellItem {
+type Player {
   id: ID!
+  farmingSkill: BigInt!
+  totalValueSold: BigInt!
 }
-
-type SwayFarm_LevelUp {
-  id: ID!
-}
-
-type SwayFarm_NewPlayer {
-  id: ID!
-}
-
