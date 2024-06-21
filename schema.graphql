@@ -1,0 +1,12 @@
+type SwayFarm_SellItem {
+  id: ID!
+}
+
+type SwayFarm_LevelUp {
+  id: ID!
+}
+
+type SwayFarm_NewPlayer {
+  id: ID!
+}
+
