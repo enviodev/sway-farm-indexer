@@ -1,10 +1,10 @@
-import { SwayFarmContract } from "generated";
+import { SwayFarm } from "generated";
 
 /**
 Registers a handler that processes NewPlayer event
 on the SwayFarm contract and stores the players in the DB
 */
-SwayFarmContract.NewPlayer.handler(({ event, context }) => {
+SwayFarm.NewPlayer.handler(async ({ event, context }) => {
   // Set the Player entity in the DB with the intial values
   context.Player.set({
     // The address in Sway is a union type of user Address and ContractID. Envio supports most of the Sway types, and the address value was decoded as a discriminated union 100% typesafe
@@ -15,7 +15,7 @@ SwayFarmContract.NewPlayer.handler(({ event, context }) => {
   });
 });
 
-SwayFarmContract.LevelUp.handler(({ event, context }) => {
+SwayFarm.LevelUp.handler(async ({ event, context }) => {
   const playerInfo = event.data.player_info;
   context.Player.set({
     id: event.data.address.payload.bits,
@@ -24,7 +24,7 @@ SwayFarmContract.LevelUp.handler(({ event, context }) => {
   });
 });
 
-SwayFarmContract.SellItem.handler(({ event, context }) => {
+SwayFarm.SellItem.handler(async ({ event, context }) => {
   const playerInfo = event.data.player_info;
   context.Player.set({
     id: event.data.address.payload.bits,
